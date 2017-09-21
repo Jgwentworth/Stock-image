@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Herobar = () => { 
+class Herobar extends Component{
+    constructor(props) {
+        super(props);
+
+    this.handleClick=this.handleClick.bind(this);
+    this.onInput=this.onInput.bind(this);
+
+    this.state = {
+        input: ''
+    }
+    }
+
+    handleClick() {
+        this.props.handleClick(this.state.input)
+        this.setState({
+            input:''
+        })
+    }
+    onInput(event) {
+        this.setState({
+            input: event.target.value
+        });
+    }
+
+render(){
+
     return (
         <section className="hero is-info is-medium is-bold">
             <div className="hero-head">
@@ -18,12 +43,19 @@ const Herobar = () => {
                 </span>
             <div className="field has-addons">
         <div className="control">
-            <input className="input" type="text" placeholder="Find an image"/>
+            <input
+              id="imageInput" 
+              className="input"
+              type="text"
+              placeholder="Find an image"
+              value={this.state.value}
+              onChange={this.onInput}/>
         </div>
         <div className="control">
-            <a className="button is-info">
+            <button className="button is-info"
+            onClick={this.handleClick}>
             Search
-            </a>
+            </button>
         </div>
         </div>
             </div>
@@ -35,12 +67,12 @@ const Herobar = () => {
                 Image Search
             </h1>
             <h2 className="subtitle">
-                Images by Unsplash
+                Images by Pixabay
             </h2>
             </div>
         </div>
         </section>
   );
 };
-
+}
 export default Herobar;
