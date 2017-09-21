@@ -2,18 +2,22 @@ import React, { Component } from 'react';
 import Herobar from './Herobar'; 
 import ImageList from './ImageList';
 import axios from'axios';
+import './App.css'
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       images:[],
+      imageToAdd:[]
     };
     this.handleSearch = this.handleSearch.bind(this);
   } 
  
     handleSearch(event) {
-      const nextImage = this.state.images.concat(event);
+      const nextImage = this.state.imageToAdd.concat(event);
+      console.log(nextImage)
       const imageSearch = nextImage[0]
       let imageArr = []
         axios.get("https://pixabay.com/api/?key=6415093-d13cc03b29c89f87bcdb7aec5&q="+imageSearch+"&image_type=photo&pretty=true.json"

@@ -27,13 +27,13 @@ class Herobar extends Component{
 render(){
 
     return (
-        <section className="hero is-info is-medium is-bold">
+        <section id="herobar" className="hero is-info is-medium is-bold">
             <div className="hero-head">
             <header className="nav">
             <div className="container">
                 <div className="nav-left">
                 <a className="nav-item">
-                    <img src="images/bulma-type-white.png" alt="Logo"/>
+                    <img src="/logo_square.png" alt="Logo"/>
                 </a>
                 </div>
                 <span className="nav-toggle">
@@ -48,7 +48,7 @@ render(){
               className="input"
               type="text"
               placeholder="Find an image"
-              value={this.state.value}
+              value={this.state.input}
               onChange={this.onInput}/>
         </div>
         <div className="control">
